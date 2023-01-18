@@ -6,6 +6,9 @@ const Gallery = props => {
   let images;
   let noImages;
   // map variables to each item in fetched image array and return image component
+  fetch('https://api.npms.io/v2/search?q=react')
+  .then(response => response.json())
+  .then(data => this.setState({ totalReactPackages: data.total }));
   if (results.length > 0) {
     images = results.map(image => {
       let farm = image.farm;
